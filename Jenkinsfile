@@ -35,9 +35,6 @@ pipeline {
 
         stage('Code Quality Test') {
             steps {
-                script {
-                    sh 'chmod +x ./mvnw'
-                }
                 withSonarQubeEnv('Sonar') {
                     sh 'mvn sonar:sonar -Dsonar.host.url=http://172.17.0.2:9000 -Dsonar.login=squ_bdf4362b8971c688e1ac355bd433ff1a1664f75d'
                 }
